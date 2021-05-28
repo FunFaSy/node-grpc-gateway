@@ -145,11 +145,24 @@ message SwapPoolRequest {
         type: INTEGER
     }];
 }
+
 message SwapPoolResponse {
     string amount0 = 1;
     string amount1 = 2;
     string liquidity = 3;
 }
+
+message SwapPoolsRequest {
+    uint64 height = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+        type: INTEGER
+    }];
+}
+
+message SwapPoolsResponse {
+    repeated SwapPoolResponse pools = 1;
+}
+
+
 message SwapPoolProviderRequest {
     uint64 coin0 = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
         type: INTEGER
@@ -900,7 +913,7 @@ message WaitListRequest {
     string public_key = 1;
     string address = 2;
     uint64 height = 3 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-         type: INTEGER
+        type: INTEGER
     }];
 }
 message WaitListResponse {
